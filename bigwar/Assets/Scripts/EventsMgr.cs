@@ -11,7 +11,8 @@ using System.Collections.Generic;
 
 public enum eEventsKey
 {
-	choosed,
+	ui_choosed,
+	item_choosed,
 }
 
 

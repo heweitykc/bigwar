@@ -16,7 +16,7 @@ public class ChooseView : MonoBehaviour {
 	}
 	
 	public void choose(int i){		
-		EventsMgr.GetInstance().TrigerEvent(eEventsKey.choosed, i);
+		EventsMgr.GetInstance().TrigerEvent(eEventsKey.ui_choosed, i);
 		gameObject.SetActive(false);
 	}
 	
@@ -24,4 +24,6 @@ public class ChooseView : MonoBehaviour {
 	{
 		gameObject.SetActive(true);
 	}
+	
+
 }
