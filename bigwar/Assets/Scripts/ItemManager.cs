@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.EventSystems;
 using System.Collections;
+using UnityStandardAssets.CrossPlatformInput;
 
 //战斗单元管理
 public class ItemManager : MonoBehaviour {
@@ -22,7 +23,7 @@ public class ItemManager : MonoBehaviour {
 		if(EventSystem.current.IsPointerOverGameObject()){
 			return;
 		}
-		
+
 		if (Input.touchCount != 1 )
 			return;
 

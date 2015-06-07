@@ -57,4 +57,10 @@ public class BattleItem : MonoBehaviour {
 			_soldierId = -1;
 		}
 	}
+
+    public Vector3 itemPos
+    {
+        get{ return _soldier.position; }
+        set{ _soldier.position = value; }         
+    }
 }

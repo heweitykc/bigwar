@@ -329,13 +329,13 @@ AnimationClip:
       m_Curve:
       - time: 0
         value: {x: -13.8000002, y: 238, z: -83.5999985}
-        inSlope: {x: -1.80000019, y: -45.3800049, z: -40.5100021}
-        outSlope: {x: -1.80000019, y: -45.3800049, z: -40.5100021}
+        inSlope: {x: -1.22999954, y: -33.0200043, z: -43.1399994}
+        outSlope: {x: -1.22999954, y: -33.0200043, z: -43.1399994}
         tangentMode: 0
       - time: 1
-        value: {x: -15.6000004, y: 192.619995, z: -124.110001}
-        inSlope: {x: -1.80000019, y: -45.3800049, z: -40.5100021}
-        outSlope: {x: -1.80000019, y: -45.3800049, z: -40.5100021}
+        value: {x: -15.0299997, y: 204.979996, z: -126.739998}
+        inSlope: {x: -1.22999954, y: -33.0200043, z: -43.1399994}
+        outSlope: {x: -1.22999954, y: -33.0200043, z: -43.1399994}
         tangentMode: 0
       m_PreInfinity: 2
       m_PostInfinity: 2
@@ -386,13 +386,13 @@ AnimationClip:
       m_Curve:
       - time: 0
         value: -13.8000002
-        inSlope: -1.80000019
-        outSlope: -1.80000019
+        inSlope: -1.22999954
+        outSlope: -1.22999954
         tangentMode: 10
       - time: 1
-        value: -15.6000004
-        inSlope: -1.80000019
-        outSlope: -1.80000019
+        value: -15.0299997
+        inSlope: -1.22999954
+        outSlope: -1.22999954
         tangentMode: 10
       m_PreInfinity: 2
       m_PostInfinity: 2
@@ -405,13 +405,13 @@ AnimationClip:
       m_Curve:
       - time: 0
         value: 238
-        inSlope: -45.3800049
-        outSlope: -45.3800049
+        inSlope: -33.0200043
+        outSlope: -33.0200043
         tangentMode: 10
       - time: 1
-        value: 192.619995
-        inSlope: -45.3800049
-        outSlope: -45.3800049
+        value: 204.979996
+        inSlope: -33.0200043
+        outSlope: -33.0200043
         tangentMode: 10
       m_PreInfinity: 2
       m_PostInfinity: 2
@@ -424,13 +424,13 @@ AnimationClip:
       m_Curve:
       - time: 0
         value: -83.5999985
-        inSlope: -40.5100021
-        outSlope: -40.5100021
+        inSlope: -43.1399994
+        outSlope: -43.1399994
         tangentMode: 10
       - time: 1
-        value: -124.110001
-        inSlope: -40.5100021
-        outSlope: -40.5100021
+        value: -126.739998
+        inSlope: -43.1399994
+        outSlope: -43.1399994
         tangentMode: 10
       m_PreInfinity: 2
       m_PostInfinity: 2

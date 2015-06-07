@@ -17,6 +17,7 @@ public class BattleAnimations : MonoBehaviour {
 	Vector3 _targetPosition;
 	Vector3 _returnPosition;
 	bool inReturning;	//是否返回中
+    bool inEffects = false;
 	
 	void Start () {
 		_inAnim = false;
@@ -25,6 +26,7 @@ public class BattleAnimations : MonoBehaviour {
 	void Update () {
 		if(_list == null) return;
 		if(_list.Count <= 0) return;
+        if (inEffects) return; //特效播放中
 		if(!_inAnim){
 			if(index >= _list.Count){  //播放完成
 				_list = null;
@@ -37,29 +39,39 @@ public class BattleAnimations : MonoBehaviour {
 			_suffer = _list[index+1];
 			index += 2;
 			inReturning = false;
+            inEffects = false;
 			_returnPosition = _attcker.transform.position;
-			_targetPosition = _suffer.transform.position;
+            Vector3 vf = _suffer.transform.position - _attcker.transform.position;
+            _targetPosition = _attcker.transform.position + vf.normalized * 2;
 			return;
 		}
-		
-		Vector3 forward = _targetPosition - _attcker.transform.position;
+
+        Vector3 forward = _targetPosition - _attcker.itemPos;
 		Vector3 v = forward.normalized * speed * Time.deltaTime;			
 		//print("v="+v);
 		
 		if(forward.magnitude <= v.magnitude){
 			if(inReturning){
-				_inAnim = false;
-				_attcker.transform.position = _returnPosition;				
+				_inAnim = false;				
+                _attcker.itemPos = _returnPosition;
 				return;
 			}
 			_targetPosition = _returnPosition;
-			inReturning = true;
-			//_suffer.addHP(-50);
+            inEffects = true;
+            GetComponent<ExplosionManager>().startExplosion(afterExplosion, _suffer.transform.position);
+            print("pos=" + _suffer.transform.position);
 			return;
 		}
-		
-		_attcker.transform.position += v;		
+        
+        _attcker.itemPos += v;
 	}
+
+    void afterExplosion()
+    {
+        inReturning = true;
+        inEffects = false;
+        //_suffer.addHP(-50);
+    }
 	
 	public void StartAnim(List<BattleItem> list)
 	{
