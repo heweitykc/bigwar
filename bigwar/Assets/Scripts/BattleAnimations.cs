@@ -31,6 +31,7 @@ public class BattleAnimations : MonoBehaviour {
 			if(index >= _list.Count){  //播放完成
 				_list = null;
 				endCallback();
+                print("endCallback");
 				return;
 			}
 			
@@ -42,7 +43,8 @@ public class BattleAnimations : MonoBehaviour {
             inEffects = false;
 			_returnPosition = _attcker.transform.position;
             Vector3 vf = _suffer.transform.position - _attcker.transform.position;
-            _targetPosition = _attcker.transform.position + vf.normalized * 2;
+            _targetPosition = _attcker.transform.position + vf.normalized * 4;
+            print("开始移动动画");
 			return;
 		}
 
@@ -54,15 +56,16 @@ public class BattleAnimations : MonoBehaviour {
 			if(inReturning){
 				_inAnim = false;				
                 _attcker.itemPos = _returnPosition;
+                print("返回移动完成");
 				return;
 			}
 			_targetPosition = _returnPosition;
             inEffects = true;
             GetComponent<ExplosionManager>().startExplosion(afterExplosion, _suffer.transform.position);
-            print("pos=" + _suffer.transform.position);
+            print("播放爆炸");
 			return;
 		}
-        
+        print("移动。。。。");
         _attcker.itemPos += v;
 	}
 
