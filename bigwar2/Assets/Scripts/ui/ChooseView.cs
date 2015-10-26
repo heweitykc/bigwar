@@ -24,6 +24,4 @@ public class ChooseView : MonoBehaviour {
 	{
 		gameObject.SetActive(true);
 	}
-	
-
 }

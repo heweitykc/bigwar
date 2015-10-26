@@ -20,6 +20,7 @@ public class BattleResult : MonoBehaviour {
 	
 	public void showResult(bool r)
 	{
+        print("showResult");
 		gameObject.SetActive(true);
 		resultTxt.text = r ? "战斗胜利" : "战斗失败";
 	}

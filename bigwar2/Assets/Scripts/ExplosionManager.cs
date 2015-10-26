@@ -18,21 +18,12 @@ public class ExplosionManager : MonoBehaviour {
 	
 	}
 
-    public void startExplosion(Action callback,Vector3 pos)
+    public void startExplosion(Vector3 pos, string num)
     {
-        _callback = callback;
         _obj = Instantiate(explosionPerfab) as GameObject;
         _obj.transform.position = pos;
         _obj.transform.rotation = Quaternion.identity;
         Vector3 sp = Camera.main.WorldToScreenPoint(pos);
-        bloodBar.PlayNum(sp);
-        Invoke("aftercall", 0.8f);
-    }
-
-    void aftercall()
-    {
-        _callback();
-        _callback = null;
-        GameObject.Destroy(_obj);        
+        bloodBar.PlayNum(sp, num); 
     }
 }

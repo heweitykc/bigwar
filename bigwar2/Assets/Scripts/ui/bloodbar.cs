@@ -2,7 +2,7 @@
 using System.Collections;
 
 public class bloodbar : MonoBehaviour {
-    public Animator txtanimator;
+    public bloodtxtController[] txtanimators;
 
 	void Start () {
 	
@@ -12,16 +12,16 @@ public class bloodbar : MonoBehaviour {
 	
 	}
 
-    public void PlayNum(Vector3 v)
+    public void PlayNum(Vector3 v, string num)
     {
-        gameObject.SetActive(true);
-        transform.position = v;
-        txtanimator.Play("blood",0,0);
-        Invoke("playEnd", 0.8f);
-    }
-
-    void playEnd()
-    {
-        gameObject.SetActive(false);
+        foreach (bloodtxtController anim in txtanimators)
+        {
+            if (anim.gameObject.activeSelf == false) {
+                anim.gameObject.SetActive(true);
+                anim.transform.position = v;
+                anim.StartAnim(num);
+                return;
+            }                
+        }        
     }
 }

@@ -7,8 +7,9 @@ public class BattleItem : MonoBehaviour {
 	public int _HP = 100;
 	public int _soldierId;
 	public int index;
+    public PlayerModel data;
 	
-	Transform _soldier;	
+    RoleItem _soldier;
 	
 	void Start () {
 		selected = false;
@@ -43,35 +44,29 @@ public class BattleItem : MonoBehaviour {
 			_soldier = null;
 			return;
 		}
-		
+        data = AppGlobal.cfg.getModel(_soldierId);
 		Transform perfab = AppGlobal.embattleMgr.soldierPerfabs[i%3];
-		_soldier = GameObject.Instantiate(perfab) as Transform;
-		_soldier.parent = transform;
-		_soldier.localPosition = Vector3.zero;
+		_soldier = 
+            (GameObject.Instantiate(perfab) as Transform).GetComponent<RoleItem>();
+        _soldier.data = data;
+		_soldier.transform.parent = transform;
+		_soldier.transform.localPosition = Vector3.zero;
+        _soldier.nametxt.text = data.pname;        
 	}
 
     public void clear()
     {
         if (_soldier == null) return;
+        _soldier.gameObject.SetActive(false);
         GameObject.Destroy(_soldier.gameObject);
         _soldier = null;
+        _soldierId = -1;
     }
-	
-	//扣血
-	public void addHP(int hp)
-	{
-		_HP += hp;
-		if(_HP <= 0){			
-			GameObject.Destroy(_soldier.gameObject);
-			_soldier = null;
-			_soldierId = -1;
-		}
-	}
 
     public Vector3 itemPos
     {
-        get{ return _soldier.position; }
-        set{ _soldier.position = value; }         
+        get{ return _soldier.transform.position; }
+        set { _soldier.transform.position = value; }         
     }
 
     void OnMouseDown()
@@ -110,6 +105,8 @@ public class BattleItem : MonoBehaviour {
 
     void selectMe()
     {
+        if (AppGlobal.itemMgr.selectedItem == this)
+            return;
         if (AppGlobal.itemMgr.selectedItem != null)
             AppGlobal.itemMgr.selectedItem.selected = false;
         AppGlobal.itemMgr.selectedItem = this;

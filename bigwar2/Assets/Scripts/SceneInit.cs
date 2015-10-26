@@ -2,8 +2,14 @@
 using System.Collections;
 
 public class SceneInit : MonoBehaviour {	
+
 	void Awake () {
+
 		EventsMgr.GetInstance().Init();
+        if (AppGlobal.cfg == null) {
+            AppGlobal.cfg = new ConfigManager();
+        }        
+
 		AppGlobal.embattleMgr = 
 			GameObject.Find("ScriptObject").GetComponent<EmbattleManager>();
 		AppGlobal.battleMgr = 
@@ -16,9 +22,13 @@ public class SceneInit : MonoBehaviour {
 			GameObject.Find("Main Camera").transform;
 		AppGlobal.battleResult = 
 			GameObject.Find("BattleResult").GetComponent<BattleResult>();
-		
-		AppGlobal.playRound = 
+
+        AppGlobal.playRound = 
 			GameObject.Find("PlayerRound").GetComponent<PlayerRound>();
+
+        AppGlobal.chooseView =
+            GameObject.Find("ChooseView").GetComponent<ChooseView>();
+
 		AppGlobal.phase = GamePhase.LINEUP;
 	}
 }

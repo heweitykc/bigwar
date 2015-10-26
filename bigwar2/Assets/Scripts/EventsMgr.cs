@@ -54,6 +54,7 @@ public class EventsMgr  {
     private void AddDelegate(eEventsKey key)
     {
         //Debug.Log(" 添加一个回调 : "+ key);
+        if (m_dicEvents.ContainsKey(key)) return;
         m_dicEvents.Add(key, delegate(object data) { });
     }
 

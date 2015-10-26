@@ -4,7 +4,6 @@ using System.Collections;
 
 //布阵
 public class EmbattleManager : MonoBehaviour {
-	public ChooseView chooseview;
 	public Transform[] soldierPerfabs;
 	
 	void Awake()
@@ -16,7 +15,7 @@ public class EmbattleManager : MonoBehaviour {
 	void onItemChoosed(object data)
 	{
         if (AppGlobal.phase != GamePhase.LINEUP) return;
-		chooseview.show();
+        AppGlobal.chooseView.show();		
 	}
 	
 	void onChoosed(object data)
