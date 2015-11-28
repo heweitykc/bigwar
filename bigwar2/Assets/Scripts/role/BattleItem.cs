@@ -33,7 +33,7 @@ public class BattleItem : MonoBehaviour {
 		}
 	}
 	
-	public void setSoldier(int i)
+	public void setSoldier(int i, PlayerModel playerdata = null)
 	{
         if (_soldierId != -1) return;   //已经有兵了
 
@@ -44,10 +44,17 @@ public class BattleItem : MonoBehaviour {
 			_soldier = null;
 			return;
 		}
+
         data = AppGlobal.cfg.getModel(_soldierId);
+        if (playerdata != null)
+        {
+            data.currentHp = playerdata.currentHp;
+            data.currentNu = playerdata.currentNu;
+        }            
 		Transform perfab = AppGlobal.embattleMgr.soldierPerfabs[i%3];
 		_soldier = 
             (GameObject.Instantiate(perfab) as Transform).GetComponent<RoleItem>();
+        _soldier.transform.localScale = new Vector3(0.4f,0.4f,0.4f);
         _soldier.data = data;
 		_soldier.transform.parent = transform;
 		_soldier.transform.localPosition = Vector3.zero;
