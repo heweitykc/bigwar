@@ -16,7 +16,7 @@ public class PlayerRound : MonoBehaviour {
 	public void show()
 	{
 		gameObject.SetActive(true);
-		msgtxt.GetComponent<Animator>().Play("fly",0,0);		
+//		msgtxt.GetComponent<Animator>().Play("fly",0,0);		
 	}
 	
 	public void hide()

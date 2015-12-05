@@ -20,7 +20,7 @@ public class MainUI : MonoBehaviour {
 	
 	public void startBattle()
 	{
-		AppGlobal.camera.GetComponent<Animator>().Play("battle");
+//		AppGlobal.camera.GetComponent<Animator>().Play("battle");
 		startBtn.gameObject.SetActive(false);
         AppGlobal.phase = GamePhase.BATTLE;		
 		AppGlobal.playRound.hide();
@@ -35,7 +35,7 @@ public class MainUI : MonoBehaviour {
 	
 	public void startOperate()
 	{
-		AppGlobal.camera.GetComponent<Animator>().Play("buzhen");		
+//		AppGlobal.camera.GetComponent<Animator>().Play("buzhen");		
 	}
 	
 	public void QuitGame()

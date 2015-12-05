@@ -7,7 +7,8 @@ public class RoleItem : MonoBehaviour {
 
     public TextMesh hptxt;
 	void Start () {
-	
+        nametxt.transform.localPosition = new Vector3(0,25f,0);
+        nametxt.transform.localScale = new Vector3(5f,5f,5f);
 	}
 	
 	void Update () {        

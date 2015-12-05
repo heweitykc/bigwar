@@ -8,6 +8,7 @@ public class BattleItem : MonoBehaviour {
 	public int _soldierId;
 	public int index;
     public PlayerModel data;
+    public bool isSelf;
 	
     RoleItem _soldier;
 	
@@ -51,7 +52,12 @@ public class BattleItem : MonoBehaviour {
             data.currentHp = playerdata.currentHp;
             data.currentNu = playerdata.currentNu;
         }
-        Transform perfab = AppGlobal.embattleMgr.soldierBlue[i % 3];
+
+        Transform perfab;
+        if(isSelf)
+            perfab = AppGlobal.embattleMgr.soldierRed[i % 3];
+        else
+            perfab = AppGlobal.embattleMgr.soldierBlue[i % 3];
 		_soldier = 
             (GameObject.Instantiate(perfab) as Transform).GetComponent<RoleItem>();        
         _soldier.data = data;
